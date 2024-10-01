@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PlotTwist/Toci.PlotTwist.Vsix/.vs/Toci.PlotTwist.Vsix
+/.vs
