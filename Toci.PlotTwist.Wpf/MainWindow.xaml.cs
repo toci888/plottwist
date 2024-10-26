@@ -13,16 +13,52 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Toci.PlotTwist.Wpf
+namespace ChatGptExtension
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ChatGptWindow : Window
     {
-        public MainWindow()
+        public ChatGptWindow()
         {
             InitializeComponent();
+        }
+
+        public async void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            var apiClient = new ChatGptApiClient("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"); // Replace with your API key
+            var prompt = InputTextBox.Text;
+            var response = await apiClient.GetResponseAsync(prompt);
+            ResponseTextBox.Text = response;
+        }
+
+        private void CopyButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Copy the response text to the clipboard
+            if (!string.IsNullOrEmpty(ResponseTextBox.Text))
+            {
+                Clipboard.SetText(ResponseTextBox.Text);
+                MessageBox.Show("Code copied to clipboard!");
+            }
+            else
+            {
+                MessageBox.Show("No code to copy.");
+            }
+        }
+
+        private void InsertButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Insert the response text into the input text box
+            if (!string.IsNullOrEmpty(ResponseTextBox.Text))
+            {
+                InputTextBox.Text += ResponseTextBox.Text + Environment.NewLine; // Append the response
+                MessageBox.Show("Code inserted into the prompt box.");
+            }
+            else
+            {
+                MessageBox.Show("No code to insert.");
+            }
         }
     }
 }

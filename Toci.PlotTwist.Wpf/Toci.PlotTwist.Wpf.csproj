@@ -95,5 +95,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Toci.PlotTwist.ChatGPT\Toci.PlotTwist.ChatGPT.csproj">
+      <Project>{3aec5474-f4b6-4722-a313-f1b4d44ca52b}</Project>
+      <Name>Toci.PlotTwist.ChatGPT</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
