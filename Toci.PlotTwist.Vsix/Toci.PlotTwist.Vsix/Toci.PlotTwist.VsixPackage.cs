@@ -51,7 +51,7 @@ namespace Toci.PlotTwist.Vsix
             ChatGptWindow chat = new ChatGptWindow();
 
            //chat.InitializeComponent();
-           //chat.Show();
+           chat.Show();
     }
 
     #endregion

@@ -3,7 +3,7 @@ using EnvDTE80;
 using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 
 public class FileGenerator
 {

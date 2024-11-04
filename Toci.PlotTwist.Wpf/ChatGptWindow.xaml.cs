@@ -22,6 +22,8 @@ namespace Toci.PlotTwist.Wpf
         public ChatGptWindow()
         {
             InitializeComponent();
+
+            this.Show();
         }
 
         public async void SendButton_Click(object sender, RoutedEventArgs e)
