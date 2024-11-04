@@ -27,7 +27,7 @@ namespace Toci.PlotTwist.Vsix
     internal sealed partial class PackageIds
     {
         public const int MyMenuGroup = 0x0001;
-        public const int MyCommand = 0x0100;
+        public const int BitoCommand = 0x0100;
         public const int cmdidAddCommonsReference = 0x0100;
         public const int bmpPic1 = 0x0001;
         public const int bmpPic2 = 0x0002;

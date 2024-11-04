@@ -2,11 +2,24 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Community.VisualStudio.Toolkit;
 using Toci.PlotTwist.Wpf;
 using Task = System.Threading.Tasks.Task;
+using static Toci.PlotTwist.Vsix.BitoCommandReference;
 
 namespace Toci.PlotTwist.Vsix
 {
+    internal sealed partial class Vsix
+    {
+        public const string Id = "TociPlottwist.67b44461-7f56-486d-9256-f873b71847f7";
+        public const string Name = "TociPlottwist";
+        public const string Description = @"Plottwist by Toci";
+        public const string Language = "en-US";
+        public const string Version = "1.0";
+        public const string Author = "HP";
+        public const string Tags = "";
+    }
+
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
     /// </summary>
@@ -23,10 +36,15 @@ namespace Toci.PlotTwist.Vsix
     /// <para>
     /// To get loaded into VS, the package must be referred by &lt;Asset Type="Microsoft.VisualStudio.VsPackage" ...&gt; in .vsixmanifest file.
     /// </para>
-    /// </remarks>
+
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-   // [Guid(Toci.PlotTwist.VsixPackage.PackageGuidString)]
-    public sealed class VsixPackage : AsyncPackage
+    // [InstalledProductRegistration()]
+    [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
+    [ProvideMenuResource("Menus.ctmenu", 1)]
+    [Guid(PackageGuids.TociCodeBoosterString)]
+
+    // [Guid(Toci.PlotTwist.VsixPackage.PackageGuidString)]
+    public sealed class VsixPackage : ToolkitPackage
     {
          /// <summary>
         /// Toci.PlotTwist.VsixPackage GUID string.
@@ -44,9 +62,12 @@ namespace Toci.PlotTwist.Vsix
     /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
     protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
     {
-        // When initialized asynchronously, the current thread may be a background thread at this point.
-        // Do any initialization that requires the UI thread after switching to the UI thread.
-        await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+        await this.RegisterCommandsAsync();
+            await BitoCommandReference.InitializeAsync(this);
+
+            // When initialized asynchronously, the current thread may be a background thread at this point.
+            // Do any initialization that requires the UI thread after switching to the UI thread.
+            await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
 
             ChatGptWindow chat = new ChatGptWindow();
 

@@ -60,23 +60,16 @@
 		<!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
 		<Buttons>
-			<Button guid="TociCodeBooster" id="MyCommand" priority="0x0100" type="Button">
+			<Button guid="TociCodeBooster" id="BitoCommand" priority="0x0100" type="Button">
 				<Parent guid="TociCodeBooster" id="MyMenuGroup" />
 				<Icon guid="ImageCatalogGuid" id="StatusInformation" />
 				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Bito Command</ButtonText>
-					<LocCanonicalName>.TociCodeBooster.MyCommand</LocCanonicalName>
+					<LocCanonicalName>Vsix.BitoCommand</LocCanonicalName>
 				</Strings>
 			</Button>
-			<Button guid="guidTociCodeBoosterPackageCmdSet" id="cmdidAddCommonsReference" priority="0x0100" type="Button">
-				<Parent guid="guidTociCodeBoosterPackageCmdSet" id="MyMenuGroup" />
-				<Icon guid="guidImages" id="bmpPic1" />
-				<Strings>
-					<ButtonText>Invoke AddCommonsReference</ButtonText>
-				</Strings>
-			</Button>
-		</Buttons>
+			</Buttons>
 		<Bitmaps>
 			<Bitmap guid="guidImages" href="Commands\Resources\AddCommonsReference.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
 		</Bitmaps>
@@ -85,7 +78,7 @@
 	<Symbols>
 		<GuidSymbol name="TociCodeBooster" value="{57ce0dc6-35b4-4145-801a-1295206a9988}">
 			<IDSymbol name="MyMenuGroup" value="0x0001" />
-			<IDSymbol name="MyCommand" value="0x0100" />
+			<IDSymbol name="BitoCommand" value="0x0100" />
 		</GuidSymbol>
 
 		<GuidSymbol value="{22d887a7-d5c7-43e7-87dd-6c906639eb80}" name="guidTociCodeBoosterPackageCmdSet">
