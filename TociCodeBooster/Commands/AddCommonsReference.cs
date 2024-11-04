@@ -1,41 +1,21 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.MobileControls;
-using Toci.PlotTwist.Vsix;
-using Toci.PlotTwist.Wpf;
-using Microsoft.VisualStudio.Shell;
-using Community.VisualStudio.Toolkit;
-using EnvDTE;
+﻿using EnvDTE;
 using EnvDTE80;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
+using System;
 using System.ComponentModel.Design;
+using System.Globalization;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
-
-namespace Toci.PlotTwist.Vsix
+namespace TociCodeBooster.Commands
 {
-    [Command(0x0100)]
-    public sealed class BitoCommandReference : BaseCommand<BitoCommandReference>
+    /// <summary>
+    /// Command handler
+    /// </summary>
+    internal sealed class AddCommonsReference
     {
-        public BitoCommandReference()
-        {
-            ChatGptWindow windowBooster = new ChatGptWindow();
-            windowBooster.Show();
-        }
-
-        protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
-        {
-            //await VS.MessageBox.ShowWarningAsync("TociCodeBooster", "Button clicked");
-
-            //GhostRiderGenEx 
-            ChatGptWindow windowBooster = new ChatGptWindow();
-            windowBooster.Show();
-
-        }
-
         /// <summary>
         /// Command ID.
         /// </summary>
@@ -57,7 +37,7 @@ namespace Toci.PlotTwist.Vsix
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
         /// <param name="commandService">Command service to add command to, not null.</param>
-        private BitoCommandReference(AsyncPackage package, OleMenuCommandService commandService)
+        private AddCommonsReference(AsyncPackage package, OleMenuCommandService commandService)
         {
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
@@ -70,7 +50,7 @@ namespace Toci.PlotTwist.Vsix
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static PlotTwist.Vsix.BitoCommandReference Instance
+        public static AddCommonsReference Instance
         {
             get;
             private set;
@@ -98,7 +78,7 @@ namespace Toci.PlotTwist.Vsix
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-            Instance = new PlotTwist.Vsix.BitoCommandReference(package, commandService);
+            Instance = new AddCommonsReference(package, commandService);
         }
 
         /// <summary>
@@ -110,25 +90,44 @@ namespace Toci.PlotTwist.Vsix
         /// <param name="e">Event args.</param>
         private void Execute(object sender, EventArgs e)
         {
-            Instance.Execute(sender, e);
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var dte = ServiceProvider.GetServiceAsync(typeof(DTE)).Result as DTE2;
+            var solution = dte.Solution as Solution2;
 
+            string folderName = "Common";
+
+            EnvDTE.Project folderProject = solution.AddSolutionFolder(folderName);
+
+            EnvDTE80.SolutionFolder solutionFolder = folderProject.Object as EnvDTE80.SolutionFolder;
+
+            if (solutionFolder != null)
+            {
+                //foreach (var projectPath in projectPaths)
+                {
+                    // Add the existing project to the solution folder
+                    string dir = Directory.GetCurrentDirectory();
+
+                    //solutionFolder.AddFromFile(@"C:\Users\bzapa\source\repos\IntotechDev\Intotech.Common\Intotech.Common\Intotech.Common.csproj");
+        
+                }
+            }
+
+            
+
+            //var folder = solution.AddSolutionFolder(folderName);//as EnvDTE80.SolutionFolder;
+
+            //folder.Save();
+
+
+            //solution.Close();
+
+           // if (solution.Saved)
+            {
+
+               // EnvDTE.Project project = solution.AddFromFile(@"C:\Users\bzapa\source\repos\IntotechDev\Intotech.Common\Intotech.Common\Intotech.Common.csproj");
+            }
+
+            //folder.
         }
-
-        //[Command(PackageIds.BitoCommand)]
-        //public sealed class BitoCommandReference : BaseCommand<BitoCommandReference>
-        //{
-        //    protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
-        //    {
-        //        //await VS.MessageBox.ShowWarningAsync("TociCodeBooster", "Button clicked");
-
-        //        //GhostRiderGenEx
-        //        ChatGptWindow windowBooster = new ChatGptWindow();
-        //        windowBooster.Show();
-
-        //    }
-
-
-        //}
-
     }
 }

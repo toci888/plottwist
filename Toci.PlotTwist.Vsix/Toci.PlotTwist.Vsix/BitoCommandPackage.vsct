@@ -1,125 +1,25 @@
-﻿<!--<CommandTable>
-  <Commands>
-    <Groups>
-      <Group guid="your-command-set-guid" id="MyCommandGroup" priority="0x0100">
-        <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOL_MAINMENU"/>
-      </Group>
-    </Groups>
-    <Buttons>
-      <Button guid="your-command-set-guid" id="MyCommandId" priority="0x0100" type="Button">
-        <Parent guid="your-command-set-guid" id="MyCommandGroup"/>
-        <Icon>your-icon-id</Icon>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <Strings>
-          <ButtonText>Show My Plugin</ButtonText>
-        </Strings>
-      </Button>
-    </Buttons>
-  </Commands>
-
-  <Commands>
-    <Groups>
-        <Group guid="your-command-set-guid" id="MyCommandGroup" priority="0x0100">
-            <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOL_MAINMENU"/>
-        </Group>
-    </Groups>
-    <Buttons>
-        <Button guid="your-command-set-guid" id="MyCommandId" priority="0x0100" type="Button">
-            <Parent guid="your-command-set-guid" id="MyCommandGroup"/>
-            <Icon>your-icon-id</Icon>
-            <CommandFlag>DynamicVisibility</CommandFlag>
-            <Strings>
-                <ButtonText>Show My Plugin</ButtonText>
-            </Strings>
-        </Button>
-    </Buttons>
-</Commands>
-  <Images>
-    <Image id="your-icon-id" guid="your-command-set-guid" src="Resources\your-icon.png" />
-  </Images>
-</CommandTable>-->
-
-
-<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
-	<Extern href="stdidcmd.h" />
-	<Extern href="vsshlids.h" />
-	<Include href="KnownImageIds.vsct" />
-	<Include href="VSGlobals.vsct" />
-
-	<Commands package="TociCodeBooster">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable>
+	<Commands>
 		<Groups>
-			<Group guid="TociCodeBooster" id="MyMenuGroup" priority="0x0600">
-				<Parent guid="VSMainMenu" id="Tools" />
-			</Group>
-			<Group guid="guidTociCodeBoosterPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-				<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+			<!-- Group for the Tools menu -->
+			<Group guid="eebbfd40-9f01-4fdd-aaeb-cfce33c9764f" id="MyToolGroup" priority="0x0100">
+				<Parent guid="guidSHLMainMenu" id="IDG_VS_TOOL_MAINMENU"/>
 			</Group>
 		</Groups>
-
-		<!--This section defines the elements the user can interact with, like a menu command or a button
-        or combo box in a toolbar. -->
 		<Buttons>
-			<Button guid="TociCodeBooster" id="BitoCommand" priority="0x0100" type="Button">
-				<Parent guid="TociCodeBooster" id="MyMenuGroup" />
-				<Icon guid="ImageCatalogGuid" id="StatusInformation" />
-				<CommandFlag>IconIsMoniker</CommandFlag>
+			<!-- Button to show the ChatGPT window -->
+			<Button guid="eebbfd40-9f01-4fdd-aaeb-cfce33c9764f" id="MyCommandId" priority="0x0100" type="Button">
+				<Parent guid="eebbfd40-9f01-4fdd-aaeb-cfce33c9764f" id="MyToolGroup"/>
+				<Icon>your-icon-id</Icon>
+				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
-					<ButtonText>Bito Command</ButtonText>
-					<LocCanonicalName>Vsix.BitoCommand</LocCanonicalName>
+					<ButtonText>Show ChatGPT</ButtonText>
 				</Strings>
 			</Button>
-			</Buttons>
-		<Bitmaps>
-			<Bitmap guid="guidImages" href="Commands\Resources\AddCommonsReference.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-		</Bitmaps>
+		</Buttons>
 	</Commands>
-
-	<Symbols>
-		<GuidSymbol name="TociCodeBooster" value="{57ce0dc6-35b4-4145-801a-1295206a9988}">
-			<IDSymbol name="MyMenuGroup" value="0x0001" />
-			<IDSymbol name="BitoCommand" value="0x0100" />
-		</GuidSymbol>
-
-		<GuidSymbol value="{22d887a7-d5c7-43e7-87dd-6c906639eb80}" name="guidTociCodeBoosterPackageCmdSet">
-			<IDSymbol value="4128" name="MyMenuGroup" />
-			<IDSymbol value="256" name="cmdidAddCommonsReference" />
-		</GuidSymbol>
-
-		<GuidSymbol value="{a3239830-b200-4830-b869-bb6cfa0b2996}" name="guidImages">
-			<IDSymbol name="bmpPic1" value="1" />
-			<IDSymbol name="bmpPic2" value="2" />
-			<IDSymbol name="bmpPicSearch" value="3" />
-			<IDSymbol name="bmpPicX" value="4" />
-			<IDSymbol name="bmpPicArrows" value="5" />
-			<IDSymbol name="bmpPicStrikethrough" value="6" />
-		</GuidSymbol>
-	</Symbols>
+	<Images>
+		<Image id="your-icon-id" guid="eebbfd40-9f01-4fdd-aaeb-cfce33c9764f" src="Resources\your-icon.png" />
+	</Images>
 </CommandTable>
-
-
-<!--<CommandTable>
-  <Commands>
-    <Groups>
-      --><!-- Group for the Tools menu --><!--
-      <Group guid="your-command-set-guid" id="MyToolGroup" priority="0x0100">
-        <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOL_MAINMENU"/>
-      </Group>
-    </Groups>
-    <Buttons>
-      --><!-- Button to show the plugin window -->
-  <!--
-      <Button guid="your-command-set-guid" id="MyCommandId" priority="0x0100" type="Button">
-        <Parent guid="your-command-set-guid" id="MyToolGroup"/>
-        <Icon>your-icon-id</Icon>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <Strings>
-          <ButtonText>Show Bito plugin</ButtonText>
-        </Strings>
-      </Button>
-    </Buttons>
-  </Commands>
-  <Images>
-    <Image id="your-icon-id" guid="your-command-set-guid" src="Resources\your-icon.png" />
-  </Images>
-</CommandTable>-->

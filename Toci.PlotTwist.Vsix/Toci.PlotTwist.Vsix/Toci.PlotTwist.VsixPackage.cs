@@ -41,7 +41,7 @@ namespace Toci.PlotTwist.Vsix
     // [InstalledProductRegistration()]
     [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(PackageGuids.TociCodeBoosterString)]
+    [Guid("eebbfd40-9f01-4fdd-aaeb-cfce33c9764f")]
 
     // [Guid(Toci.PlotTwist.VsixPackage.PackageGuidString)]
     public sealed class VsixPackage : ToolkitPackage

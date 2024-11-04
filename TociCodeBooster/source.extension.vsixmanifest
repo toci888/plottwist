@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Toci.PlotTwist.Vsix.e8eb7bbd-ffa0-4d4c-b769-d6c10263e466" Version="1.0" Language="en-US" Publisher="HP" />
-        <DisplayName>Toci.PlotTwist.Vsix</DisplayName>
-        <Description xml:space="preserve">Plot twist</Description>
-        <Icon>toci.jpg</Icon>
+        <Identity Id="TociCodeBooster.67b44461-7f56-486d-9256-f873b71847f7" Version="1.0" Language="en-US" Publisher="HP" />
+        <DisplayName>TociCodeBooster</DisplayName>
+        <Description xml:space="preserve">Code booster by Toci</Description>
+        <Icon>Resources\Icon.png</Icon>
+        <PreviewImage>Resources\Icon.png</PreviewImage>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
     </Installation>
-    <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-    </Dependencies>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
