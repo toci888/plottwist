@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intotech.ReflectiveTools", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intotech.GhostRider", "..\..\Intotech.Common\Intotech.GhostRider\Intotech.GhostRider\Intotech.GhostRider.csproj", "{A5FB95BB-2263-42B6-AD5D-DFB0DFFE2E75}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{9EDA244C-3FFA-4108-BCF3-1B5DAAD1588C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,8 +1,8 @@
-﻿using ChatGptExtension;
-using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Shell;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Toci.PlotTwist.Wpf;
 using Task = System.Threading.Tasks.Task;
 
 namespace Toci.PlotTwist.Vsix
@@ -50,7 +50,8 @@ namespace Toci.PlotTwist.Vsix
 
             ChatGptWindow chat = new ChatGptWindow();
 
-            //chat.InitializeComponent();
+           //chat.InitializeComponent();
+           //chat.Show();
     }
 
     #endregion

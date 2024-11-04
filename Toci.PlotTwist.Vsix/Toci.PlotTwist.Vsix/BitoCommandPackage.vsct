@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--<CommandTable>
+  <Commands>
+    <Groups>
+      <Group guid="your-command-set-guid" id="MyCommandGroup" priority="0x0100">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOL_MAINMENU"/>
+      </Group>
+    </Groups>
+    <Buttons>
+      <Button guid="your-command-set-guid" id="MyCommandId" priority="0x0100" type="Button">
+        <Parent guid="your-command-set-guid" id="MyCommandGroup"/>
+        <Icon>your-icon-id</Icon>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Show My Plugin</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <Commands>
+    <Groups>
+        <Group guid="your-command-set-guid" id="MyCommandGroup" priority="0x0100">
+            <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOL_MAINMENU"/>
+        </Group>
+    </Groups>
+    <Buttons>
+        <Button guid="your-command-set-guid" id="MyCommandId" priority="0x0100" type="Button">
+            <Parent guid="your-command-set-guid" id="MyCommandGroup"/>
+            <Icon>your-icon-id</Icon>
+            <CommandFlag>DynamicVisibility</CommandFlag>
+            <Strings>
+                <ButtonText>Show My Plugin</ButtonText>
+            </Strings>
+        </Button>
+    </Buttons>
+</Commands>
+  <Images>
+    <Image id="your-icon-id" guid="your-command-set-guid" src="Resources\your-icon.png" />
+  </Images>
+</CommandTable>-->
+
+
+<CommandTable>
+  <Commands>
+    <Groups>
+      <!-- Group for the Tools menu -->
+      <Group guid="your-command-set-guid" id="MyToolGroup" priority="0x0100">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOL_MAINMENU"/>
+      </Group>
+    </Groups>
+    <Buttons>
+      <!-- Button to show the plugin window -->
+      <Button guid="your-command-set-guid" id="MyCommandId" priority="0x0100" type="Button">
+        <Parent guid="your-command-set-guid" id="MyToolGroup"/>
+        <Icon>your-icon-id</Icon>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Show Bito plugin</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+  <Images>
+    <Image id="your-icon-id" guid="your-command-set-guid" src="Resources\your-icon.png" />
+  </Images>
+</CommandTable>

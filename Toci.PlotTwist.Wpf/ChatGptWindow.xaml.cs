@@ -10,13 +10,12 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChatGptExtension
+namespace Toci.PlotTwist.Wpf
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ChatGptWindow.xaml
     /// </summary>
     public partial class ChatGptWindow : Window
     {
@@ -33,7 +32,7 @@ namespace ChatGptExtension
             ResponseTextBox.Text = response;
         }
 
-        private void CopyButton_Click(object sender, RoutedEventArgs e)
+        public void CopyButton_Click(object sender, RoutedEventArgs e)
         {
             // Copy the response text to the clipboard
             if (!string.IsNullOrEmpty(ResponseTextBox.Text))
@@ -47,7 +46,7 @@ namespace ChatGptExtension
             }
         }
 
-        private void InsertButton_Click(object sender, RoutedEventArgs e)
+        public void InsertButton_Click(object sender, RoutedEventArgs e)
         {
             // Insert the response text into the input text box
             if (!string.IsNullOrEmpty(ResponseTextBox.Text))
@@ -61,4 +60,6 @@ namespace ChatGptExtension
             }
         }
     }
+
+
 }
