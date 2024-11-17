@@ -6,9 +6,12 @@ using System.Threading.Tasks;
  using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+//using System.Text.Json;
 
 public class ChatGptApiClient
 {
+    private const string ApiUrl = "https://api.openai.com/v1/completions";
     private readonly string _apiKey;
 
     public ChatGptApiClient(string apiKey)
@@ -16,7 +19,34 @@ public class ChatGptApiClient
         _apiKey = apiKey;
     }
 
-public async Task<string> GenerateClassFromChatGPT(string prompt)
+
+
+    public async Task<string> GenerateCodeAsync(string prompt)
+    {
+        using (var client = new HttpClient())
+        {
+
+
+            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_apiKey}");
+
+            var payload = new
+            {
+                model = "text-davinci-003",
+                prompt = prompt,
+                max_tokens = 150,
+            };
+
+            var content = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(ApiUrl, content);
+
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadAsStringAsync();
+            var json = System.Text.Json.JsonSerializer.Deserialize<JsonElement>(result);
+            return json.GetProperty("choices")[0].GetProperty("text").GetString().Trim();
+        }
+    }
+
+    public async Task<string> GenerateClassFromChatGPT(string prompt)
 {
     using (var client = new HttpClient())
     {

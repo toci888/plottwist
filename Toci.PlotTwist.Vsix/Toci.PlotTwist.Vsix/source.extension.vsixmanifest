@@ -5,6 +5,7 @@
         <DisplayName>Toci.PlotTwist.Vsix</DisplayName>
         <Description xml:space="preserve">Plot twist</Description>
         <Icon>toci.jpg</Icon>
+        <Preview>true</Preview>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">

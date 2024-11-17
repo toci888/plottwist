@@ -6,8 +6,9 @@
         <Description xml:space="preserve">Code booster by Toci</Description>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Icon.png</PreviewImage>
+        <Preview>true</Preview>
     </Metadata>
-    <Installation>
+    <Installation AllUsers="true" InstalledByMsi="true">
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>

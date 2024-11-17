@@ -18,6 +18,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
+    <CopyVsixExtensionFiles>true</CopyVsixExtensionFiles>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
     <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
@@ -98,6 +99,10 @@
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.5232" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Toci.PlotTewist\Toci.PlotTwist.Vs.csproj">
+      <Project>{3e4f172e-8cc2-4253-88d2-8d7a16f86ae3}</Project>
+      <Name>Toci.PlotTwist.Vs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Toci.PlotTwist.ChatGPT\Toci.PlotTwist.ChatGPT.csproj">
       <Project>{3aec5474-f4b6-4722-a313-f1b4d44ca52b}</Project>
       <Name>Toci.PlotTwist.ChatGPT</Name>

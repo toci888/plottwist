@@ -52,6 +52,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BitoCommandPackage.vsct</DependentUpon>
     </Compile>
+    <Compile Include="Commands\GenerateCodeCommand.cs" />
     <Compile Include="Commands\MyCommand.cs" />
     <Compile Include="FileGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
